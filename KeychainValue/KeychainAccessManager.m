@@ -88,10 +88,11 @@
 	[query setObject:(__bridge id)kCFBooleanTrue forKey:(__bridge id<NSCopying>)kSecReturnData];
 	[query setObject:self.serviceName forKey:(__bridge id<NSCopying>)kSecAttrService];
 	
-	CFTypeRef result;
+	CFTypeRef result = NULL;
 	OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)query, &result);
-	if (status == noErr) {
-		resultData = (__bridge NSData*)result;
+	if (status == noErr && result != NULL) {
+		resultData = [[NSData alloc] initWithData:(__bridge NSData*)result];
+		CFRelease(result);
 	}
 	
 	return resultData;
