@@ -18,10 +18,10 @@
 
 @implementation KeychainAccessManager
 
-// 必ずinitWithServiceNameを使うこと.
+// アプリのBundleIdentifierをServiceNameとして使用する.
 - (id)init
 {
-	return nil;
+	return [self initWithServiceName:nil];
 }
 
 // serviceNameがnilの場合はアプリのBundleIdentifierをServiceNameとして使用する.

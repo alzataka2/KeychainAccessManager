@@ -10,7 +10,7 @@
 
 @interface KeychainAccessManager : NSObject
 
-// サービス名指定の初期化メソッド(-initは使用しないこと).
+// サービス名指定の初期化メソッド(-initを使用するとBundleIdentifierをサービス名として使用).
 - (id)initWithServiceName:(NSString *)serviceName;
 
 // パスワード保存.
