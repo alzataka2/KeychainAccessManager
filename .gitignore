@@ -1,5 +1,8 @@
 #gitで無視するファイル／ディレクトリを定義
 
 .DS_Store
+build
 *.xcodeproj/xcuserdata/
 *.xcodeproj/project.xcworkspace/xcuserdata/
+*.xcodeproj/*.pbxuser
+*.xcodeproj/*.perspectivev3
