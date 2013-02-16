@@ -90,9 +90,8 @@
 	
 	CFTypeRef result = NULL;
 	OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)query, &result);
-	if (status == noErr && result != NULL) {
-		resultData = [[NSData alloc] initWithData:(__bridge NSData*)result];
-		CFRelease(result);
+	if (status == errSecSuccess) {
+		resultData = (__bridge_transfer NSData*)result;
 	}
 	
 	return resultData;
